@@ -1,0 +1,57 @@
+\documentclass{standalone}
+%\usepackage[nofragment]{lyluatex}
+\usepackage{tikz}
+\usepackage{fontspec}
+
+\newcommand{\scoretrack}{
+\begin{lilypond}
+\paper{
+ paper-width=297
+ line-width=260
+}
+
+\layout {
+  \context {
+    \Score
+    centerBarNumbers = ##t
+    barNumberVisibility = #all-bar-numbers-visible
+    \override CenteredBarNumber.stencil
+      = #(make-stencil-boxer 0.1 0.25 ly:text-interface::print)
+    \override CenteredBarNumberLineSpanner.direction = #DOWN
+%    \override CenteredBarNumberLineSpanner.Y-extent = #'(1 . 1)
+%    \override CenteredBarNumberLineSpanner.X-extent = #'(1 . 1)
+  }
+}
+#(set-global-staff-size 18)
+
+  \score {
+\new ChoirStaff \with {\override StaffGrouper.staff-staff-spacing.basic-distance = 11} <<
+	\new Staff \relative {\override Score.BarNumber.break-visibility = ##(#f #t #t) \set Score.barNumberVisibility = #all-bar-numbers-visible \set Score.currentBarNumber = #0 \clef treble \time 4/4 \key c \major \hide NoteHead \hide Stem g' g g g | g g g g | g g g g | g g g g | g g g g | g g g g | g g g g | g g g g | g g g g | g g g g | g g g g | g g g g | g g g g \bar "|."}
+	\new Staff \relative {\clef alto \time 4/4 \key c \major s s s s | s s s s | s s s s | s s s s | s s s s | s s s s | s s s s | s s s s | s s s s | s s s s | s s s s | s s s s | s s s s \bar "|."}
+	\new Staff \relative {\clef tenor \time 4/4 \key c \major s s s s | s s s s | s s s s | s s s s | s s s s | s s s s | s s s s | s s s s | s s s s | s s s s | s s s s | s s s s | s s s s \bar "|."}
+	\new Staff \relative {\clef bass \time 4/4 \key c \major s s s s | s s s s | s s s s | s s s s | s s s s | s s s s | s s s s | s s s s | s s s s | s s s s | s s s s | s s s s | s s s s \bar "|."}
+>>
+}%endof score
+\end{lilypond}
+}
+
+\begin{document}
+\begin{tikzpicture}
+\path[draw] (-148.5mm, 0mm) rectangle (148.5mm, -210mm);
+\path[draw] (-148.5mm, 0mm) rectangle (148.5mm, -105mm);
+\node[anchor=north] at (0, -1.0cm) {{
+\setmainfont{Tex Gyre Schola}
+\Huge
+Test Piece -- Score
+}};
+\node[anchor=south] at (0, -94mm) {\scoretrack};
+
+\node[anchor=north] at (0, -115mm) {{
+\setmainfont{Tex Gyre Schola}
+\Huge
+Test Piece -- Score
+}};
+\node[anchor=south] at (0, -199mm) {\scoretrack};
+
+\end{tikzpicture}
+\end{document}

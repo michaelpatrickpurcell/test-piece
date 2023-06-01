@@ -1,0 +1,22 @@
+\documentclass{standalone}
+
+\usepackage{testpiece}
+\setmainfont[Scale=1.0]{Tex Gyre Schola}
+\begin{document}
+\begin{tikzpicture}
+\Huge
+\path (-105mm, -148.5mm) -- (105mm, 148.5mm);
+\pic at (-\horizdist,\vertdist) {instrumentcardfrontprintable={sopranocornet4}};
+\pic at (0,\vertdist) {instrumentcardfrontprintable={frontrowcornet4}};
+\pic at (\horizdist,\vertdist) {instrumentcardfrontprintable={frontrowcornet4}};
+
+\pic at (-\horizdist,0) {instrumentcardfrontprintable={backrowcornet4}};
+\pic at (0,0) {instrumentcardfrontprintable={backrowcornet4}};
+\pic at (\horizdist,0) {instrumentcardfrontprintable={flugelhorn4}};
+
+\pic at (-\horizdist,-\vertdist) {instrumentcardfrontprintable={tenorhorn4}};
+\pic at (0,-\vertdist) {instrumentcardfrontprintable={tenorhorn4}};
+\pic at (\horizdist,-\vertdist) {instrumentcardfrontprintable={baritone4}};
+
+\end{tikzpicture}
+\end{document}

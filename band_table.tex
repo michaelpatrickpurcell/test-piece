@@ -1,0 +1,118 @@
+\documentclass[a5paper]{article}
+%\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage[left=1cm, right=1cm, bottom=1cm]{geometry}
+\usepackage{romannum}
+
+\usepackage{testpiece}
+\setmainfont[Scale=1.0]{Tex Gyre Schola}
+
+\usepackage[nofragment]{lyluatex}
+
+\newcommand{\tsqw}{%
+\raisebox{-0.75ex}{\tikz{\node[draw, fill=white, inner sep=1.5ex] {};}}
+}
+
+\newcommand{\tsqg}{%
+\tikz{\node[draw, fill=lightgray] {};}
+}
+
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+\section*{Instrumentation}
+\begin{tabular}{ccc | l | ccccc}\toprule
+\multicolumn{3}{c|}{Desking} & Instrument & S & A & T & B & C \\ \midrule
+& & \tsqw & Soprano Cornet & 3 & 0 & 0 & 0 & 0 \\[0.5ex]
+\tsqw & \tsqw & \tsqw & Cornet & 2 & 1 & 0 & 0 & 0 \\[0.5ex]
+%\tsqw & \tsqw & \tsqw & \tsqw & Back-Row Cornet & 2 & 1 & 0 & 0 & 0 \\[0.5ex]
+%&  & & \tsqw & Repiano Cornet & 2 & 1 & 0 & 0 & 0 \\[0.5ex]
+& & \tsqw & Flugel Horn & 1 & 2 & 0 & 0 & 0 \\[0.5ex]
+\tsqw & \tsqw & \tsqw & Tenor Horn & 0 & 2 & 1 & 0 & 0 \\[0.5ex]
+& \tsqw & \tsqw & Baritone & 0 & 1 & 2 & 0 & 0 \\[0.5ex]
+& \tsqw & \tsqw & Trombone & 0 & 0 & 2 & 1 & 0 \\[0.5ex]
+& \tsqw & \tsqw & Euphonium & 0 & 0 & 1 & 2 & 0 \\[0.5ex]
+& & \tsqw & Bass Trombone & 0 & 0 & 0 & 2 & 1 \\[0.5ex]
+& \tsqw & \tsqw & E\myflat{} Bass & 0 & 0 & 0 & 1 & 2 \\[0.5ex]
+& & \tsqw & B\myflat{} Bass & 0 & 0 & 0 & 0 & 3 \\ \bottomrule%[0.5ex]
+%& & \tsqw & Percussion 1 & 1 & 1 & 1 & 0 & 0 \\[0.5ex]
+%& & \tsqw & Percussion 2 & 0 & 1 & 1 & 1 & 0 \\[0.5ex]
+%& & \tsqw & Percussion 3 & 0 & 0 & 1 & 1 & 1 \\ \bottomrule
+\end{tabular}
+
+%\vspace{2cm}
+%
+%\section*{Score}
+%\begin{tabular}{c | cccc | cccc | cccc | c} \toprule
+%\multicolumn{1}{c}{} & \multicolumn{13}{c}{Measure} \\ \cmidrule(l){2-14}
+%\multicolumn{1}{c}{Voice} & A & B & C & D & E & F & G & H & I & J & K & L & M \\ \midrule
+%S & & & & & & & & & & & & & \\ \midrule
+%A & & & & & & & & & & & & & \\ \midrule
+%T & & & & & & & & & & & & & \\ \midrule
+%B & & & & & & & & & & & & & \\ \midrule
+%C & & & & & & & & & & & & & \\ \bottomrule
+%\end{tabular}
+
+\newpage
+\section*{Instrumentation}
+\begin{tabular}{cccc | l | cccc}\toprule
+\multicolumn{4}{c|}{Desking} & Instrument & S & A & T & B \\ \midrule
+&  & & \tsqw & Soprano Cornet & 3 & 0 & 0 & 0 \\[0.5ex]
+\tsqw & \tsqw & \tsqw & \tsqw & Front-Row Cornet & 2 & 1 & 0 & 0 \\[0.5ex]
+\tsqw & \tsqw & \tsqw & \tsqw & Back-Row Cornet & 1 & 2 & 0 & 0 \\[0.5ex]
+& & \tsqw & \tsqw & Flugelhorn / Repiano Cornet & 0 & 3 & 0 & 0 \\[0.5ex]
+& \tsqw & \tsqw & \tsqw & Tenor Horn & 0 & 2 & 1 & 0 \\[0.5ex]
+& & \tsqw & \tsqw & Baritone & 0 & 1 & 2 & 0 \\[0.5ex]
+& & \tsqw & \tsqw & Euphonium & 0 & 0 & 3 & 0 \\[0.5ex]
+& & \tsqw & \tsqw & Trombone & 0 & 0 & 2 & 1 \\[0.5ex]
+& \tsqw & \tsqw & \tsqw & E\myflat{} Bass / Bass Trombone & 0 & 0 & 1 & 2 \\[0.5ex]
+& & \tsqw & \tsqw & B\myflat{} Bass & 0 & 0 & 0 & 3 \\[0.5ex]
+& &\tsqw & \tsqw & Percussion & 1 & 1 & 1 & 0 \\[0.5ex]
+& & & \tsqw & Timpani & 0 & 1 & 1 & 1 \\ \bottomrule
+\end{tabular}
+
+\vfill
+
+\section*{Adjudication Sheet}
+\begin{tabular}{c | c|c|c|c || c|c|c|c} \toprule
+\multicolumn{1}{c}{\multirow{1}{*}[-1.8ex]{Movement}} & \multicolumn{4}{c}{Performance} & \multicolumn{4}{c}{Deductions}\\ \cmidrule(lr){2-5} \cmidrule(l){6-9}
+\multicolumn{1}{c}{} & S & A & T & \multicolumn{1}{c}{B} & S & A & T & B \\ \midrule
+\Romannum{1} & \phantom{value} & \phantom{value} & \phantom{value} & \phantom{value} &  & & & \\ \midrule
+\multicolumn{2}{c}{} & \multicolumn{3}{r||}{Total Deductions} & & & &\\ \midrule
+\multicolumn{9}{c}{} \\ \midrule
+\Romannum{2} & & & & & & & &\\ \midrule
+\multicolumn{2}{c}{} & \multicolumn{3}{r||}{Total Deductions} & & & &\\ \midrule
+\multicolumn{9}{c}{} \\ \midrule
+\Romannum{3} & & & & & & & & \\ \midrule
+\multicolumn{2}{c}{} & \multicolumn{3}{r||}{Total Deductions} & & & &\\ \midrule
+\multicolumn{9}{c}{} \\ \midrule
+\Romannum{4} & & & & & & & & \\ \midrule
+\multicolumn{2}{c}{} & \multicolumn{3}{r||}{Total Deductions} & & & &\\ \midrule
+\multicolumn{9}{c}{} \\ \midrule
+\Romannum{5} & & & & & & & & \\ \midrule
+\multicolumn{2}{c}{} & \multicolumn{3}{r||}{Total Deductions} & & & &\\ \midrule
+\multicolumn{9}{c}{} \\ \midrule
+\Romannum{6} & & & & & & & & \\ \midrule
+\multicolumn{2}{c}{} & \multicolumn{3}{r||}{Total Deductions} & & & &\\ \midrule
+\multicolumn{9}{c}{} \\ \midrule
+\Romannum{7} & & & & & & & & \\ \midrule
+\multicolumn{2}{c}{} & \multicolumn{3}{r||}{Total Deductions} & & & &\\ \midrule
+\multicolumn{9}{c}{} \\ \midrule
+\Romannum{8} & & & & & & & & \\ \midrule
+\multicolumn{2}{c}{} & \multicolumn{3}{r||}{Total Deductions} & & & &\\ \bottomrule
+%\multicolumn{9}{c}{} \\ \midrule
+%\multicolumn{9}{c}{} \\ \midrule
+%I & & & & & & & & \\ \midrule
+%J & & & & & & & & \\ \midrule
+%K & & & & & & & & \\ \midrule
+%L & & & & & & & & \\ \midrule
+%\multicolumn{9}{c}{} \\ \midrule
+%M & & & & & & & & \\ \midrule
+%N & & & & & & & & \\ \midrule
+%O & & & & & & & & \\ \midrule
+%P & & & & & & & & \\ \bottomrule
+\end{tabular}
+\end{center}
+\end{document}

@@ -1,0 +1,252 @@
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{math}
+\usetikzlibrary{shapes}
+\usetikzlibrary{calc}
+
+\usepackage{calc}
+\usepackage{fontspec}
+\usepackage{lilyglyphs}
+\lilyGlobalOptions{scale=0.8, raise=0.2}
+\newcommand{\myflat}{\kern 1pt \flat}
+
+\newlength{\cardwidth}
+\newlength{\cardheight}
+\newlength{\bleed}
+\newlength{\horizspace}
+\newlength{\vertspace}
+\newlength{\vertdist}
+\newlength{\horizdist}
+
+\setlength{\cardwidth}{2.5in}
+\setlength{\cardheight}{3.5in}
+\setlength{\bleed}{0.0625in}
+\setlength{\horizspace}{0.0625in}
+\setlength{\horizdist}{\cardwidth + 2\bleed + \horizspace}
+\setlength{\vertspace}{0.0625in}
+\setlength{\vertdist}{\cardheight + 2\bleed + \vertspace}
+
+\tikzset{cardbackpattern/.pic={
+	\foreach \i in {-1.25in, -1.0in, -0.75in, -0.5in, -0.25in, 0in, 0.25in, 0.5in, 0.75in, 1.0in, 1.25in}
+		\foreach \j in {-1.75in, -1.5in, -1.25in, -1.0in, -0.75in, -0.5in, -0.25in, 0in, 0.25in, 0.5in, 0.75in, 1.0in, 1.25in, 1.5in, 1.75in}
+			\draw[ultra thick, black] (\i,\j) circle (0.105in);
+
+	\foreach \i in {-1.375in, -1.125in, -0.875in,-0.625in, -0.375in, -0.125in, 0.125in, 0.375in, 0.625in, 0.875in, 1.125in, 1.375in}
+		\foreach \j in {-1.875in, -1.625in, -1.375in, -1.125in, -0.875in, -0.625in, -0.375in, -0.125in, 0.125in, 0.375in, 0.625in, 0.875in, 1.125in, 1.375in, 1.625in, 1.875in}
+			\draw[ultra thick, black] (\i,\j) circle (0.105in);
+	\foreach \i in {-1.25in, -1.0in, -0.75in, -0.5in, -0.25in, 0in, 0.25in, 0.5in, 0.75in, 1.0in, 1.25in}
+		\foreach \j in {-1.75in, -1.5in, -1.25in, -1.0in, -0.75in, -0.5in, -0.25in, 0in, 0.25in, 0.5in, 0.75in, 1.0in, 1.25in, 1.5in, 1.75in}
+			\draw[thick, #1] (\i,\j) circle (0.105in);
+
+	\foreach \i in {-1.375in, -1.125in, -0.875in,-0.625in, -0.375in, -0.125in, 0.125in, 0.375in, 0.625in, 0.875in, 1.125in, 1.375in}
+		\foreach \j in {-1.875in, -1.625in, -1.375in, -1.125in, -0.875in, -0.625in, -0.375in, -0.125in, 0.125in, 0.375in, 0.625in, 0.875in, 1.125in, 1.375in, 1.625in, 1.875in}
+			\draw[thick, #1] (\i,\j) circle (0.105in);
+
+}}
+
+\tikzset{guidecross/.pic={
+	\draw[#1] (-\bleed,0) -- (\bleed,0);
+	\draw[#1] (0, -\bleed) -- (0, \bleed);
+}}
+
+\tikzset{cutguide/.pic={
+	\pic () at (-\cardwidth/2, \cardheight/2) {guidecross={#1}};
+	\pic () at (\cardwidth/2, \cardheight/2) {guidecross={#1}};
+	\pic () at (-\cardwidth/2, -\cardheight/2) {guidecross={#1}};
+	\pic () at (\cardwidth/2, -\cardheight/2) {guidecross={#1}};
+}}
+
+\tikzset{pics/instrumentcardbackprintable/.style n args={2}{
+	code={
+	\begin{scope}
+	\clip (-\cardwidth/2 - \bleed, 0in) --%
+	      (-\cardwidth/2 - \bleed, \cardheight/2 + \bleed) --%
+	      (\cardwidth/2 + \bleed, \cardheight/2 + \bleed) --%
+	      (\cardwidth/2 + \bleed, -\cardheight/2 - \bleed) --%
+	      (-\cardwidth/2 - \bleed, -\cardheight/2 - \bleed) --%
+	      cycle;
+	% Pattern for card back
+	\path[fill=#1] (-\cardwidth/2 - \bleed, 0in) --%
+	      (-\cardwidth/2 - \bleed, \cardheight/2 + \bleed) --%
+	      (\cardwidth/2 + \bleed, \cardheight/2 + \bleed) --%
+	      (\cardwidth/2 + \bleed, -\cardheight/2 - \bleed) --%
+	      (-\cardwidth/2 - \bleed, -\cardheight/2 - \bleed) --%
+	      cycle;
+	\pic () at (0,0) {cardbackpattern={#2}};
+	% Cutting guides for corners of the cards	
+	\pic () at (0,0) {cutguide={#1}};
+\end{scope}
+}}}
+
+
+\tikzset{instrumentcardfrontprintable/.pic={%
+		\begin{scope}
+		\clip (-\cardwidth/2 - \bleed, 0in) --%
+		      (-\cardwidth/2 - \bleed, \cardheight/2 + \bleed) --%
+		      (\cardwidth/2 + \bleed, \cardheight/2 + \bleed) --%
+		      (\cardwidth/2 + \bleed, -\cardheight/2 - \bleed) --%
+		      (-\cardwidth/2 - \bleed, -\cardheight/2 - \bleed) --%
+		      cycle;
+
+		% Pattern for card front
+		\pic () at (0,0) {#1};				
+		\end{scope}
+		% Cutting guides for corners of the cards	
+		\pic () at (0,0) {cutguide={black}};
+}}
+
+\tikzset{instrumentcardfrontdisplay/.pic={%
+		\begin{scope}
+		\clip[rounded corners=3mm] (-\cardwidth/2, 0in) --%
+		      (-\cardwidth/2, \cardheight/2) --%
+		      (\cardwidth/2, \cardheight/2) --%
+		      (\cardwidth/2, -\cardheight/2) --%
+		      (-\cardwidth/2, -\cardheight/2) --%
+		      cycle;
+		\path[draw, line width=1.5mm, rounded corners=3mm] (-\cardwidth/2, 0in) --%
+		      (-\cardwidth/2, \cardheight/2) --%
+		      (\cardwidth/2, \cardheight/2) --%
+		      (\cardwidth/2, -\cardheight/2) --%
+		      (-\cardwidth/2, -\cardheight/2) --%
+		      cycle;
+
+		% Pattern for card front
+		\pic () at (0,0) {#1};				
+		\end{scope}
+}}
+
+
+\tikzset{pics/instrumentdetails4/.style n args={6}{
+	code={
+		% Pattern for card front
+		\node[text width=2in, text centered, anchor=north] () at (0,1.66in) {#1};
+		\node at (0,0) {#2};				
+%		\node[anchor=south] at (0mm,-1.66in) {(#3,#4,#5,#6)};
+		\node[draw, ultra thick, anchor=south east, minimum width=0.5in, minimum height=0.5in] at (-0.5in, -1.55in) {#3};
+		\node[draw, ultra thick, anchor=south east, minimum width=0.5in, minimum height=0.5in] at (0in, -1.55in) {#4};
+		\node[draw, ultra thick, anchor=south east, minimum width=0.5in, minimum height=0.5in] at (0.5in, -1.55in) {#5};
+		\node[draw, ultra thick, anchor=south east, minimum width=0.5in, minimum height=0.5in] at (1in, -1.55in) {#6};
+
+
+}}}
+
+\tikzset{sopranocornet4/.pic={%
+		\pic at (0,0) {instrumentdetails4={Soprano Cornet}{[ART]}{3}{0}{0}{0}};
+}}
+
+\tikzset{frontrowcornet4/.pic={%
+		\pic at (0,0) {instrumentdetails4={Front-Row Cornet}{[ART]}{2}{1}{0}{0}};
+}}
+
+\tikzset{backrowcornet4/.pic={%
+		\pic at (0,0) {instrumentdetails4={Back-Row Cornet}{[ART]}{1}{2}{0}{0}};
+}}
+
+\tikzset{repianocornet4/.pic={%
+		\pic at (0,0) {instrumentdetails4={Repiano Cornet}{[ART]}{0}{3}{0}{0}};
+}}
+
+\tikzset{flugelhorn4/.pic={%
+		\pic at (0,0) {instrumentdetails4={Flugelhorn}{[ART]}{0}{3}{0}{0}};
+}}
+
+\tikzset{tenorhorn4/.pic={%
+		\pic at (0,0) {instrumentdetails4={Tenor Horn}{[ART]}{0}{2}{1}{0}};
+}}
+
+\tikzset{baritone4/.pic={%
+		\pic at (0,0) {instrumentdetails4={Baritone}{[ART]}{0}{1}{2}{0}};
+}}
+
+\tikzset{euphonium4/.pic={%
+		\pic at (0,0) {instrumentdetails4={Euphonium}{[ART]}{0}{0}{3}{0}};
+}}
+
+\tikzset{trombone4/.pic={%
+		\pic at (0,0) {instrumentdetails4={Trombone}{[ART]}{0}{0}{2}{1}};
+}}
+
+
+\tikzset{basstrombone4/.pic={%
+		\pic at (0,0) {instrumentdetails4={Bass Trombone}{[ART]}{0}{0}{1}{2}};
+}}
+
+\tikzset{eflatbass4/.pic={%
+		\pic at (0,0) {instrumentdetails4={E\myflat{} Bass}{[ART]}{0}{0}{1}{2}};
+}}
+
+\tikzset{bflatbass4/.pic={%
+		\pic at (0,0) {instrumentdetails4={B\myflat{} Bass}{[ART]}{0}{0}{0}{3}};
+}}
+
+\tikzset{percussion4/.pic={%
+		\pic at (0,0) {instrumentdetails4={Percussion}{[ART]}{1}{1}{1}{0}};
+}}
+
+\tikzset{timpani4/.pic={%
+		\pic at (0,0) {instrumentdetails4={Timpani}{[ART]}{0}{1}{1}{1}};
+}}
+
+
+\tikzset{pics/instrumentdetails5/.style n args={7}{
+	code={
+		% Pattern for card front
+		\node[text width=2in, text centered, anchor=north] () at (0,1.66in) {#1};
+		\node at (0,0) {#2};				
+		\node[anchor=south] at (0mm,-1.66in) {(#3,#4,#5,#6,#7)};
+
+}}}
+
+\tikzset{sopranocornet5/.pic={%
+		\pic at (0,0) {instrumentdetails5={Soprano Cornet}{[ART]}{3}{0}{0}{0}{0}};
+}}
+
+\tikzset{cornet5/.pic={%
+		\pic at (0,0) {instrumentdetails5={Cornet}{[ART]}{2}{1}{0}{0}{0}};
+}}
+
+\tikzset{frontrowcornet5/.pic={%
+		\pic at (0,0) {instrumentdetails5={Front-Row Cornet}{[ART]}{2}{1}{0}{0}{0}};
+}}
+
+\tikzset{backrowcornet5/.pic={%
+		\pic at (0,0) {instrumentdetails5={Back-Row Cornet}{[ART]}{2}{1}{0}{0}{0}};
+}}
+
+\tikzset{repianocornet5/.pic={%
+		\pic at (0,0) {instrumentdetails5={Repiano Cornet}{[ART]}{2}{1}{0}{0}{0}};
+}}
+
+\tikzset{flugelhorn5/.pic={%
+		\pic at (0,0) {instrumentdetails5={Flugelhorn}{[ART]}{1}{2}{0}{0}{0}};
+}}
+
+\tikzset{tenorhorn5/.pic={%
+		\pic at (0,0) {instrumentdetails5={Tenor Horn}{[ART]}{0}{2}{1}{0}{0}};
+}}
+
+\tikzset{baritone5/.pic={%
+		\pic at (0,0) {instrumentdetails5={Baritone}{[ART]}{0}{1}{2}{0}{0}};
+}}
+
+\tikzset{trombone5/.pic={%
+		\pic at (0,0) {instrumentdetails5={Trombone}{[ART]}{0}{0}{2}{1}{0}};
+}}
+
+\tikzset{euphonium5/.pic={%
+		\pic at (0,0) {instrumentdetails5={Euphonium}{[ART]}{0}{0}{1}{2}{0}};
+}}
+
+\tikzset{basstrombone5/.pic={%
+		\pic at (0,0) {instrumentdetails5={Bass Trombone}{[ART]}{0}{0}{0}{2}{1}};
+}}
+
+\tikzset{eflatbass5/.pic={%
+		\pic at (0,0) {instrumentdetails5={E\myflat{} Bass}{[ART]}{0}{0}{0}{1}{2}};
+}}
+
+\tikzset{bflatbass5/.pic={%
+		\pic at (0,0) {instrumentdetails5={B\myflat{} Bass}{[ART]}{0}{0}{0}{0}{3}};
+}}
+
+
