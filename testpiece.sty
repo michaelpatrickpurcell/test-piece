@@ -95,6 +95,25 @@
 		\pic () at (0,0) {cutguide={black}};
 }}
 
+
+\tikzset{cardoutlinedisplay/.pic={%
+		\begin{scope}
+		\clip[rounded corners=3mm] (-\cardwidth/2, 0in) --%
+		      (-\cardwidth/2, \cardheight/2) --%
+		      (\cardwidth/2, \cardheight/2) --%
+		      (\cardwidth/2, -\cardheight/2) --%
+		      (-\cardwidth/2, -\cardheight/2) --%
+		      cycle;
+		\path[draw, line width=1.5mm, rounded corners=3mm, fill=#1] (-\cardwidth/2, 0in) --%
+		      (-\cardwidth/2, \cardheight/2) --%
+		      (\cardwidth/2, \cardheight/2) --%
+		      (\cardwidth/2, -\cardheight/2) --%
+		      (-\cardwidth/2, -\cardheight/2) --%
+		      cycle;
+		\end{scope}
+}}
+
+
 \tikzset{instrumentcardfrontdisplay/.pic={%
 		\begin{scope}
 		\clip[rounded corners=3mm] (-\cardwidth/2, 0in) --%
@@ -116,7 +135,7 @@
 }}
 
 
-\tikzset{pics/instrumentdetails4/.style n args={6}{
+\tikzset{pics/instrumentdetails4a/.style n args={6}{
 	code={
 		% Pattern for card front
 		\node[text width=2in, text centered, anchor=north] () at (0,1.66in) {#1};
@@ -126,65 +145,87 @@
 		\node[draw, ultra thick, anchor=south east, minimum width=0.5in, minimum height=0.5in] at (0in, -1.55in) {#4};
 		\node[draw, ultra thick, anchor=south east, minimum width=0.5in, minimum height=0.5in] at (0.5in, -1.55in) {#5};
 		\node[draw, ultra thick, anchor=south east, minimum width=0.5in, minimum height=0.5in] at (1in, -1.55in) {#6};
+}}}
 
+\tikzset{pics/instrumentdetails4b/.style n args={6}{
+	code={
+		% Pattern for card front
+		\node[text width=2in, text centered, anchor=north] () at (0,1.66in) {#1};
+		\node at (0,0.125in) {#2};				
+%		\node[anchor=south] at (0mm,-1.66in) {(#3,#4,#5,#6)};
+		\node[draw, ultra thick, anchor=south east, minimum width=0.5in, minimum height=0.5in] at (-0.5in, -1.55in) {#3};
+		\node[draw, ultra thick, anchor=south east, minimum width=0.5in, minimum height=0.5in] at (0in, -1.55in) {#4};
+		\node[draw, ultra thick, anchor=south east, minimum width=0.5in, minimum height=0.5in] at (0.5in, -1.55in) {#5};
+		\node[draw, ultra thick, anchor=south east, minimum width=0.5in, minimum height=0.5in] at (1in, -1.55in) {#6};
+}}}
 
+\tikzset{pics/instrumentdetails4c/.style n args={6}{
+	code={
+		% Pattern for card front
+		\node[text width=2in, text centered, anchor=north] () at (0,1.66in) {#1};
+		\node[rotate=-45] at (0,0.20in) {#2};				
+%		\node[anchor=south] at (0mm,-1.66in) {(#3,#4,#5,#6)};
+		\node[draw, ultra thick, anchor=south east, minimum width=0.5in, minimum height=0.5in] at (-0.5in, -1.55in) {#3};
+		\node[draw, ultra thick, anchor=south east, minimum width=0.5in, minimum height=0.5in] at (0in, -1.55in) {#4};
+		\node[draw, ultra thick, anchor=south east, minimum width=0.5in, minimum height=0.5in] at (0.5in, -1.55in) {#5};
+		\node[draw, ultra thick, anchor=south east, minimum width=0.5in, minimum height=0.5in] at (1in, -1.55in) {#6};
 }}}
 
 \tikzset{sopranocornet4/.pic={%
-		\pic at (0,0) {instrumentdetails4={Soprano Cornet}{[ART]}{3}{0}{0}{0}};
+		\pic at (0,0) {instrumentdetails4a={Soprano Cornet}{\includegraphics[width=2in]{Images/yamaha_soprano_cornet.jpg}}{3}{0}{0}{0}};
 }}
 
 \tikzset{frontrowcornet4/.pic={%
-		\pic at (0,0) {instrumentdetails4={Front-Row Cornet}{[ART]}{2}{1}{0}{0}};
+		\pic at (0,0) {instrumentdetails4a={Front-Row Cornet}{\includegraphics[width=2in]{Images/yamaha_cornet.jpg}}{2}{1}{0}{0}};
 }}
 
 \tikzset{backrowcornet4/.pic={%
-		\pic at (0,0) {instrumentdetails4={Back-Row Cornet}{[ART]}{1}{2}{0}{0}};
+		\pic at (0,0) {instrumentdetails4a={Back-Row Cornet}{\includegraphics[width=2in]{Images/yamaha_cornet.jpg}}{1}{2}{0}{0}};
 }}
 
 \tikzset{repianocornet4/.pic={%
-		\pic at (0,0) {instrumentdetails4={Repiano Cornet}{[ART]}{0}{3}{0}{0}};
+		\pic at (0,0) {instrumentdetails4a={Repiano Cornet}{\includegraphics[width=2in]{Images/yamaha_cornet.jpg}}{0}{3}{0}{0}};
 }}
 
 \tikzset{flugelhorn4/.pic={%
-		\pic at (0,0) {instrumentdetails4={Flugelhorn}{[ART]}{0}{3}{0}{0}};
+		\pic at (0,0) {instrumentdetails4b={Flugelhorn}{\includegraphics[width=2in]{Images/yamaha_flugelhorn.jpg}}{0}{3}{0}{0}};
 }}
 
 \tikzset{tenorhorn4/.pic={%
-		\pic at (0,0) {instrumentdetails4={Tenor Horn}{[ART]}{0}{2}{1}{0}};
+		\pic at (0,0) {instrumentdetails4b={Tenor Horn}{\includegraphics[height=1.75in]{Images/yamaha_tenor_horn.jpg}}{0}{2}{1}{0}};
 }}
 
 \tikzset{baritone4/.pic={%
-		\pic at (0,0) {instrumentdetails4={Baritone}{[ART]}{0}{1}{2}{0}};
+		\pic at (0,0) {instrumentdetails4b={Baritone}{\includegraphics[height=1.75in]{Images/yamaha_baritone.jpg}}{0}{1}{2}{0}};
 }}
 
 \tikzset{euphonium4/.pic={%
-		\pic at (0,0) {instrumentdetails4={Euphonium}{[ART]}{0}{0}{3}{0}};
+		\pic at (0,0) {instrumentdetails4b={Euphonium}{\includegraphics[height=1.75in]{Images/yamaha_euphonium.jpg}}{0}{0}{3}{0}};
 }}
 
 \tikzset{trombone4/.pic={%
-		\pic at (0,0) {instrumentdetails4={Trombone}{[ART]}{0}{0}{2}{1}};
+		\pic at (0,0) {instrumentdetails4c={Trombone}{\includegraphics[width=2.25in]{Images/yamaha_trombone.jpg}}{0}{0}{2}{1}};
 }}
 
 
 \tikzset{basstrombone4/.pic={%
-		\pic at (0,0) {instrumentdetails4={Bass Trombone}{[ART]}{0}{0}{1}{2}};
+		\pic at (0,0) {instrumentdetails4b={Bass Trombone}{[ART]}{0}{0}{1}{2}};
 }}
 
 \tikzset{eflatbass4/.pic={%
-		\pic at (0,0) {instrumentdetails4={E\myflat{} Bass}{[ART]}{0}{0}{1}{2}};
+		\pic at (0,0) {instrumentdetails4b={E\myflat{} Bass}{\includegraphics[height=1.75in]{Images/yamaha_eflat_tuba.jpg}}{0}{0}{1}{2}};
 }}
 
 \tikzset{bflatbass4/.pic={%
-		\pic at (0,0) {instrumentdetails4={B\myflat{} Bass}{[ART]}{0}{0}{0}{3}};
+		\pic at (0,0) {instrumentdetails4b={B\myflat{} Bass}{\includegraphics[height=1.75in]{Images/yamaha_bflat_tuba.jpg}}{0}{0}{0}{3}};
 }}
 
 \tikzset{percussion4/.pic={%
-		\pic at (0,0) {instrumentdetails4={Percussion}{[ART]}{1}{1}{1}{0}};
+		\pic at (0,0) {instrumentdetails4b={Percussion}{\includegraphics[width=2in]{Images/yamaha_percussion.jpg}}{1}{1}{1}{0}};
 }}
 
 \tikzset{timpani4/.pic={%
-		\pic at (0,0) {instrumentdetails4={Timpani}{[ART]}{0}{1}{1}{1}};
+		\pic at (0,0) {instrumentdetails4b={Timpani}{\includegraphics[width=2in]{Images/yamaha_timpani.jpg}}{0}{1}{1}{1}};
 }}
 
 
