@@ -171,6 +171,20 @@
 		\node[draw, ultra thick, anchor=south east, minimum width=0.5in, minimum height=0.5in] at (1in, -1.55in) {#6};
 }}}
 
+
+\tikzset{pics/instrumentdetails4d/.style n args={6}{
+	code={
+		% Pattern for card front
+		\node[text width=2in, text centered, anchor=north] () at (0,1.66in) {#1};
+%		\node[rotate=-45] at (0,0.20in) {#2};				
+%		\node[anchor=south] at (0mm,-1.66in) {(#3,#4,#5,#6)};
+		\node[draw, ultra thick, anchor=south east, minimum width=0.5in, minimum height=0.5in] at (-0.5in, -1.55in) {#3};
+		\node[draw, ultra thick, anchor=south east, minimum width=0.5in, minimum height=0.5in] at (0in, -1.55in) {#4};
+		\node[draw, ultra thick, anchor=south east, minimum width=0.5in, minimum height=0.5in] at (0.5in, -1.55in) {#5};
+		\node[draw, ultra thick, anchor=south east, minimum width=0.5in, minimum height=0.5in] at (1in, -1.55in) {#6};
+}}}
+
+
 \tikzset{sopranocornet4/.pic={%
 		\pic at (0,0) {instrumentdetails4a={Soprano Cornet}{\includegraphics[width=2in]{Images/yamaha_soprano_cornet.jpg}}{3}{0}{0}{0}};
 }}
@@ -227,6 +241,64 @@
 \tikzset{timpani4/.pic={%
 		\pic at (0,0) {instrumentdetails4b={Timpani}{\includegraphics[width=2in]{Images/yamaha_timpani.jpg}}{0}{1}{1}{1}};
 }}
+
+\tikzset{sopranocornet4b/.pic={%
+		\pic at (0,0) {instrumentdetails4d={Soprano Cornet}{\includegraphics[width=2in]{Images/yamaha_soprano_cornet.jpg}}{3}{0}{0}{0}};
+}}
+
+\tikzset{frontrowcornet4b/.pic={%
+		\pic at (0,0) {instrumentdetails4d={Front-Row Cornet}{\includegraphics[width=2in]{Images/yamaha_cornet.jpg}}{2}{1}{0}{0}};
+}}
+
+\tikzset{backrowcornet4b/.pic={%
+		\pic at (0,0) {instrumentdetails4d={Back-Row Cornet}{\includegraphics[width=2in]{Images/yamaha_cornet.jpg}}{1}{2}{0}{0}};
+}}
+
+\tikzset{repianocornet4b/.pic={%
+		\pic at (0,0) {instrumentdetails4d={Repiano Cornet}{\includegraphics[width=2in]{Images/yamaha_cornet.jpg}}{0}{3}{0}{0}};
+}}
+
+\tikzset{flugelhorn4b/.pic={%
+		\pic at (0,0) {instrumentdetails4d={Flugelhorn}{\includegraphics[width=2in]{Images/yamaha_flugelhorn.jpg}}{0}{3}{0}{0}};
+}}
+
+\tikzset{tenorhorn4b/.pic={%
+		\pic at (0,0) {instrumentdetails4d={Tenor Horn}{\includegraphics[height=1.75in]{Images/yamaha_tenor_horn.jpg}}{0}{2}{1}{0}};
+}}
+
+\tikzset{baritone4b/.pic={%
+		\pic at (0,0) {instrumentdetails4d={Baritone}{\includegraphics[height=1.75in]{Images/yamaha_baritone.jpg}}{0}{1}{2}{0}};
+}}
+
+\tikzset{euphonium4b/.pic={%
+		\pic at (0,0) {instrumentdetails4d={Euphonium}{\includegraphics[height=1.75in]{Images/yamaha_euphonium.jpg}}{0}{0}{3}{0}};
+}}
+
+\tikzset{trombone4b/.pic={%
+		\pic at (0,0) {instrumentdetails4d={Trombone}{\includegraphics[width=2.25in]{Images/yamaha_trombone.jpg}}{0}{0}{2}{1}};
+}}
+
+
+\tikzset{basstrombone4b/.pic={%
+		\pic at (0,0) {instrumentdetails4d={Bass Trombone}{[ART]}{0}{0}{1}{2}};
+}}
+
+\tikzset{eflatbass4b/.pic={%
+		\pic at (0,0) {instrumentdetails4d={E\myflat{} Bass}{\includegraphics[height=1.75in]{Images/yamaha_eflat_tuba.jpg}}{0}{0}{1}{2}};
+}}
+
+\tikzset{bflatbass4b/.pic={%
+		\pic at (0,0) {instrumentdetails4d={B\myflat{} Bass}{\includegraphics[height=1.75in]{Images/yamaha_bflat_tuba.jpg}}{0}{0}{0}{3}};
+}}
+
+\tikzset{percussion4b/.pic={%
+		\pic at (0,0) {instrumentdetails4d={Percussion}{\includegraphics[width=2in]{Images/yamaha_percussion.jpg}}{1}{1}{1}{0}};
+}}
+
+\tikzset{timpani4b/.pic={%
+		\pic at (0,0) {instrumentdetails4d={Timpani}{\includegraphics[width=2in]{Images/yamaha_timpani.jpg}}{0}{1}{1}{1}};
+}}
+
 
 
 \tikzset{pics/instrumentdetails5/.style n args={7}{
