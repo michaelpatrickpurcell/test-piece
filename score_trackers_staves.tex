@@ -1,7 +1,8 @@
 \documentclass{standalone}
 %\usepackage[nofragment]{lyluatex}
-\usepackage{tikz}
-\usepackage{fontspec}
+%\usepackage{tikz}
+%\usepackage{fontspec}
+\usepackage{testpiece}
 
 \newcommand{\scoretrack}{
 {%
@@ -24,13 +25,18 @@
 \begin{document}
 \begin{tikzpicture}
 %\path[draw] (-148.5mm, 0mm) rectangle (148.5mm, -210mm);
-\path[draw] (-148.5mm, 0mm) rectangle (148.5mm, -105mm);
+\path[draw, line width=2mm, rounded corners=3mm] (-148.5mm, 0mm) rectangle (148.5mm, -105mm);
 \node[anchor=north] at (0, -1.0cm) {{
 \setmainfont{Tex Gyre Schola}
 \Huge
 Score
 }};
-\node[anchor=south] at (0, -94mm) {\scoretrack};
+\node[anchor=south] at (0.875cm, -94mm) {\scoretrack};
+
+{\Huge \pic () at (-13.5cm,-3.05cm) {soprano};}
+{\Huge \pic () at (-13.5cm,-4.8cm) {alto};}
+{\Huge \pic () at (-13.5cm,-6.5cm) {tenor};}
+{\Huge \pic () at (-13.5cm,-8.25cm) {bass};}
 
 %\node[anchor=north] at (0, -115mm) {{
 %\setmainfont{Tex Gyre Schola}

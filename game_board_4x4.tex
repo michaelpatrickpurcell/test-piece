@@ -1,0 +1,94 @@
+\documentclass{standalone}
+
+\usepackage{testpiece}
+\setmainfont{Tex Gyre Schola}
+\begin{document}
+\begin{tikzpicture}
+\Huge
+\path[fill=Green] (-12in, -17.1875in) rectangle (30in,24.8125in);
+
+
+\pic[rotate=90, transform shape] at (-0.75in,0) {instrumentcardfrontdisplay={sopranocornet4b}};
+\pic[rotate=90, transform shape] at (-0.75in, 2.75in) {instrumentcardfrontdisplay={backrowcornet4b}};
+\pic[rotate=90, transform shape] at (-0.75in, 5.5in) {instrumentcardfrontdisplay={backrowcornet4b}};
+
+\pic[rotate=90, transform shape] at (3in, 1.375in) {instrumentcardfrontdisplay={frontrowcornet4b}};
+\pic[rotate=90, transform shape] at (3in,4.125in) {instrumentcardfrontdisplay={frontrowcornet4b}};
+
+\pic at (6.25in, 7.375in) {instrumentcardfrontdisplay={flugelhorn4b}};
+\pic at (9in, 7.375in) {instrumentcardfrontdisplay={tenorhorn4b}};
+\pic at (11.75in, 7.375in) {instrumentcardfrontdisplay={tenorhorn4b}};
+
+\pic[rotate=-90, transform shape] at (15in, 5.5in) {instrumentcardfrontdisplay={baritone4b}};
+\pic[rotate=-90, transform shape] at (15in, 2.75in) {instrumentcardfrontdisplay={baritone4b}};
+\pic[rotate=-90, transform shape] at (15in, 0in) {instrumentcardfrontdisplay={euphonium4b}};
+
+\pic[rotate=-90, transform shape] at (18.75in, 1.375in) {instrumentcardfrontdisplay={trombone4b}};
+\pic[rotate=-90, transform shape] at (18.75in,4.125in) {instrumentcardfrontdisplay={trombone4b}};
+
+\pic at (6.25in, 11.125in) {instrumentcardfrontdisplay={bflatbass4b}};
+\pic at (9in, 11.125in) {instrumentcardfrontdisplay={eflatbass4b}};
+\pic at (11.75in, 11.125in) {instrumentcardfrontdisplay={eflatbass4b}};
+
+\pic[rotate=45, transform shape] at (0.5in, 10.125in) {instrumentcardfrontdisplay={percussion4b}};
+\pic[rotate=-45, transform shape] at (16.875in, 10.125in) {instrumentcardfrontdisplay={timpani4b}};
+
+
+
+\pic at (-6.5in, -8.5in) {cardoutlinedisplay={Green}};
+\pic at (-6.5in, -7.5in) {cardoutlinedisplay={Green}};
+\pic at (-6.5in, -6.5in) {cardoutlinedisplay={Green}};
+\pic at (-6.5in, -5.5in) {cardoutlinedisplay={Green}};
+
+\pic at (-3.25in, -8.5in) {cardoutlinedisplay={Green}};
+\pic at (-3.25in, -7.5in) {cardoutlinedisplay={Green}};
+\pic at (-3.25in, -6.5in) {cardoutlinedisplay={Green}};
+\pic at (-3.25in, -5.5in) {cardoutlinedisplay={Green}};
+
+\pic at (0in, -8.5in) {cardoutlinedisplay={Green}};
+\pic at (0in, -7.5in) {cardoutlinedisplay={Green}};
+\pic at (0in, -6.5in) {cardoutlinedisplay={Green}};
+\pic at (0in, -5.5in) {cardoutlinedisplay={Green}};
+
+\pic at (3.25in, -8.5in) {cardoutlinedisplay={Green}};
+\pic at (3.25in, -7.5in) {cardoutlinedisplay={Green}};
+\pic at (3.25in, -6.5in) {cardoutlinedisplay={Green}};
+\pic at (3.25in, -5.5in) {cardoutlinedisplay={Green}};
+
+\node[text width=4in, align=center, anchor=north] at (-1.625in, -11in) {{\setmainfont[Scale=2.0]{Tex Gyre Schola}\Huge Player 1}};
+
+\pic at (14.75in, -8.5in) {cardoutlinedisplay={Green}};
+\pic at (14.75in, -7.5in) {cardoutlinedisplay={Green}};
+\pic at (14.75in, -6.5in) {cardoutlinedisplay={Green}};
+\pic at (14.75in, -5.5in) {cardoutlinedisplay={Green}};
+
+\pic at (18in, -8.5in) {cardoutlinedisplay={Green}};
+\pic at (18in, -7.5in) {cardoutlinedisplay={Green}};
+\pic at (18in, -6.5in) {cardoutlinedisplay={Green}};
+\pic at (18in, -5.5in) {cardoutlinedisplay={Green}};
+
+\pic at (21.25in, -8.5in) {cardoutlinedisplay={Green}};
+\pic at (21.25in, -7.5in) {cardoutlinedisplay={Green}};
+\pic at (21.25in, -6.5in) {cardoutlinedisplay={Green}};
+\pic at (21.25in, -5.5in) {cardoutlinedisplay={Green}};
+
+\pic at (24.5in, -8.5in) {cardoutlinedisplay={Green}};
+\pic at (24.5in, -7.5in) {cardoutlinedisplay={Green}};
+\pic at (24.5in, -6.5in) {cardoutlinedisplay={Green}};
+\pic at (24.5in, -5.5in) {cardoutlinedisplay={Green}};
+
+\node[text width=4in, align=center, anchor=north] at (19.625in, -11in) {{\setmainfont[Scale=2.0]{Tex Gyre Schola}\Huge Player 2}};
+
+
+\pic at (9in, 1.375in) {cardoutlinedisplay={Green}};
+\node[text width=4in, align=center, anchor=north] at (9in, -0.625in) {Instrument\\Deck};
+\pic[rotate=90, transform shape] at (9in, -7in) {cardoutlinedisplay={Green}};
+\node[text width=4in, align=center, anchor=north] at (9in, -8.5in) {Instrument\\Discard};
+
+\path[draw, ultra thick, rounded corners=3mm] (7in, 15.375in) rectangle (-7.5in, 20.375in);
+\node at(-0.75in, 17.875in) {Score Board 1};
+\path[draw, ultra thick, rounded corners=3mm] (11in, 15.375in) rectangle (25.5in, 20.375in);
+\node at(18.75in, 17.875in) {Score Board 2};
+
+\end{tikzpicture}
+\end{document}

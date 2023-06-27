@@ -1,4 +1,13 @@
 \usepackage[dvipsnames]{xcolor}
+\definecolor{SunriseBlue}{HTML}{A1A6CF}
+\definecolor{brass}{HTML}{FEDB4C}
+\definecolor{pine}{HTML}{FCDD68}
+\definecolor{redfabric}{HTML}{CB0222}
+
+\usepackage{contour}
+\contourlength{0.25mm}
+\contournumber{1024}
+
 \usepackage{tikz}
 \usetikzlibrary{math}
 \usetikzlibrary{shapes}
@@ -54,6 +63,22 @@
 	\pic () at (\cardwidth/2, \cardheight/2) {guidecross={#1}};
 	\pic () at (-\cardwidth/2, -\cardheight/2) {guidecross={#1}};
 	\pic () at (\cardwidth/2, -\cardheight/2) {guidecross={#1}};
+}}
+
+\tikzset{soprano/.pic={
+	\node[draw, circle, black, minimum width=1.125cm, inner sep=0pt, fill=redfabric] () at (0,0) {\contour{black}{\textcolor{white}{\textbf{S}}}}; 
+}}
+
+\tikzset{alto/.pic={
+	\node[draw, circle, black, minimum width=1.125cm, inner sep=0pt, fill=brass] () at (0,0) {\contour{black}{\textcolor{white}{\textbf{A}}}}; 
+}}
+
+\tikzset{tenor/.pic={
+	\node[draw, circle, black, minimum width=1.125cm, inner sep=0pt, fill=ForestGreen] () at (0,0) {\contour{black}{\textcolor{white}{\textbf{T}}}}; 
+}}
+
+\tikzset{bass/.pic={
+	\node[draw, circle, black, minimum width=1.125cm, inner sep=0pt, fill=RoyalBlue] () at (0,0) {\contour{black}{\textcolor{white}{\textbf{B}}}}; 
 }}
 
 \tikzset{pics/instrumentcardbackprintable/.style n args={2}{
@@ -122,8 +147,8 @@
 		      (\cardwidth/2, -\cardheight/2) --%
 		      (-\cardwidth/2, -\cardheight/2) --%
 		      cycle;
-		\path[draw, line width=1.5mm, rounded corners=3mm] (-\cardwidth/2, 0in) --%
-		      (-\cardwidth/2, \cardheight/2) --%
+		%\path[draw, line width=1.5mm, rounded corners=3mm] (-\cardwidth/2, 0in) --%
+		\path[draw, line width=2.0mm, rounded corners=3mm] (-\cardwidth/2, 0in) --%		      (-\cardwidth/2, \cardheight/2) --%
 		      (\cardwidth/2, \cardheight/2) --%
 		      (\cardwidth/2, -\cardheight/2) --%
 		      (-\cardwidth/2, -\cardheight/2) --%
@@ -134,6 +159,46 @@
 		\end{scope}
 }}
 
+\tikzset{pics/instrumentdetails3a/.style n args={5}{
+	code={
+		% Pattern for card front
+		\node[text width=2in, text centered, anchor=north] () at (0,1.66in) {#1};
+		\node () at (0,0) {#2};				
+		\pic[scale=1.125, transform shape] () at (-0.75in,-1.25in) {#3}; 
+		\pic[scale=1.125, transform shape] () at (0in, -1.25in) {#4}; 
+		\pic[scale=1.125, transform shape] () at (0.75in, -1.25in) {#5}; 
+}}}
+
+\tikzset{pics/instrumentdetails3b/.style n args={5}{
+	code={
+		% Pattern for card front
+		\node[text width=2in, text centered, anchor=north] () at (0,1.66in) {#1};
+		\node at (0,0.125in) {#2};
+		\pic[scale=1.125, transform shape] () at (-0.75in,-1.25in) {#3}; 
+		\pic[scale=1.125, transform shape] () at (0in, -1.25in) {#4}; 
+		\pic[scale=1.125, transform shape] () at (0.75in, -1.25in) {#5}; 	
+}}}
+
+\tikzset{pics/instrumentdetails3c/.style n args={5}{
+	code={
+		% Pattern for card front
+		\node[text width=2in, text centered, anchor=north] () at (0,1.66in) {#1};
+		\node[rotate=-45] at (0,0.20in) {#2};				
+		\pic[scale=1.125, transform shape] () at (-0.75in,-1.25in) {#3}; 
+		\pic[scale=1.125, transform shape] () at (0in, -1.25in) {#4}; 
+		\pic[scale=1.125, transform shape] () at (0.75in, -1.25in) {#5}; 	
+}}}
+
+\tikzset{pics/instrumentdetails3d/.style n args={5}{
+	code={
+		% Pattern for card front
+		\node[text width=2in, text centered, anchor=north] () at (0,1.66in) {#1};
+%		\node[rotate=-45] at (0,0.20in) {#2};				
+%		\node[anchor=south] at (0mm,-1.66in) {(#3,#4,#5,#6)};
+		\pic[scale=1.125, transform shape] () at (-0.75in,-1.25in) {#3}; 
+		\pic[scale=1.125, transform shape] () at (0in, -1.25in) {#4}; 
+		\pic[scale=1.125, transform shape] () at (0.75in, -1.25in) {#5}; 	
+}}}
 
 \tikzset{pics/instrumentdetails4a/.style n args={6}{
 	code={
@@ -184,6 +249,67 @@
 		\node[draw, ultra thick, anchor=south east, minimum width=0.5in, minimum height=0.5in] at (1in, -1.55in) {#6};
 }}}
 
+
+\tikzset{sopranocornet3/.pic={%
+		\pic at (0,0) {instrumentdetails3a={Soprano Cornet}{\includegraphics[width=2in]{Images/yamaha_soprano_cornet.jpg}}{soprano}{soprano}{soprano}};
+}}
+
+\tikzset{frontrowcornet3/.pic={%
+		\pic at (0,0) {instrumentdetails3a={Front-Row Cornet}{\includegraphics[width=2in]{Images/yamaha_cornet.jpg}}{soprano}{soprano}{alto}};
+}}
+
+\tikzset{frontrowcornet3_safe/.pic={%
+		\pic at (0,0) {instrumentdetails3a={Front-Row Cornet}{\includegraphics[width=1.75in]{Images/shutterstock_cornet.jpg}}{soprano}{soprano}{alto}};
+}}
+
+\tikzset{backrowcornet3/.pic={%
+		\pic at (0,0) {instrumentdetails3a={Back-Row Cornet}{\includegraphics[width=2in]{Images/yamaha_cornet.jpg}}{soprano}{alto}{alto}};
+}}
+
+
+\tikzset{flugelhorn3/.pic={%
+		\pic at (0,0) {instrumentdetails3b={Flugelhorn}{\includegraphics[width=2in]{Images/yamaha_flugelhorn.jpg}}{alto}{alto}{alto}};
+}}
+
+\tikzset{tenorhorn3/.pic={%
+		\pic at (0,0) {instrumentdetails3b={Tenor Horn}{\includegraphics[height=1.75in]{Images/yamaha_tenor_horn.jpg}}{alto}{alto}{tenor}};
+}}
+
+\tikzset{baritone3/.pic={%
+		\pic at (0,0) {instrumentdetails3b={Baritone}{\includegraphics[height=1.75in]{Images/yamaha_baritone.jpg}}{alto}{tenor}{tenor}};
+}}
+
+\tikzset{euphonium3/.pic={%
+		\pic at (0,0) {instrumentdetails3b={Euphonium}{\includegraphics[height=1.75in]{Images/yamaha_euphonium.jpg}}{tenor}{tenor}{tenor}};
+}}
+
+\tikzset{trombone3/.pic={%
+		\pic at (0,0) {instrumentdetails3c={Trombone}{\includegraphics[width=2.25in]{Images/yamaha_trombone.jpg}}{tenor}{tenor}{bass}};
+}}
+
+\tikzset{trombone3_safe/.pic={%
+		\pic at (0,0) {instrumentdetails3c={Trombone}{\includegraphics[width=2.25in]{Images/shutterstock_trombone.jpg}}{tenor}{tenor}{bass}};
+}}
+
+\tikzset{eflatbass3/.pic={%
+		\pic at (0,0) {instrumentdetails3b={E\myflat{} Bass}{\includegraphics[height=1.75in]{Images/yamaha_eflat_tuba.jpg}}{tenor}{bass}{bass}};
+}}
+
+\tikzset{bflatbass3/.pic={%
+		\pic at (0,0) {instrumentdetails3b={B\myflat{} Bass}{\includegraphics[height=1.75in]{Images/yamaha_bflat_tuba.jpg}}{bass}{bass}{bass}};
+}}
+
+\tikzset{bflatbass3_safe/.pic={%
+		\pic at (0,0) {instrumentdetails3b={B\myflat{} Bass}{\includegraphics[height=1.75in]{Images/shutterstock_tuba.jpg}}{bass}{bass}{bass}};
+}}
+
+\tikzset{percussion3/.pic={%
+		\pic at (0,0) {instrumentdetails3b={Percussion}{\includegraphics[width=2in]{Images/yamaha_percussion.jpg}}{soprano}{alto}{tenor}};
+}}
+
+\tikzset{timpani3/.pic={%
+		\pic at (0,0) {instrumentdetails3b={Timpani}{\includegraphics[width=2in]{Images/yamaha_timpani.jpg}}{alto}{tenor}{bass}};
+}}
 
 \tikzset{sopranocornet4/.pic={%
 		\pic at (0,0) {instrumentdetails4a={Soprano Cornet}{\includegraphics[width=2in]{Images/yamaha_soprano_cornet.jpg}}{3}{0}{0}{0}};

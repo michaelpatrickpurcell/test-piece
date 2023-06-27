@@ -3,6 +3,8 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{tikz}
 
+\usepackage{testpiece}
+
 \usepackage{ragged2e}
 % Minimize unwanted hyphenation
 \tolerance=1
@@ -15,14 +17,7 @@
 %\setmainfont{Qwigley}
 
 \usepackage{eso-pic}
-\usepackage{contour}
-\contourlength{0.25mm}
-\contournumber{1024}
 
-\definecolor{SunriseBlue}{HTML}{A1A6CF}
-\definecolor{brass}{HTML}{FEDB4C}
-\definecolor{pine}{HTML}{FCDD68}
-\definecolor{redfabric}{HTML}{CB0222}
 
 %\definecolor{SunriseBlue}{HTML}{A9C2E5}
 \setkomafont{section}{\setmainfont{Tex Gyre Schola}\LARGE\color{redfabric}\bfseries\scshape}
@@ -105,6 +100,14 @@
 \section*{Overview}
 Test Piece is a card-drafting game for two players. It can be played in about thirty minutes and is intended for players who are at least twelve years old.
 
+\begin{center}
+\begin{tikzpicture}
+\pic at (0,0) {soprano};
+\pic at (1cm,0) {alto};
+\pic at (2cm,0) {tenor};
+\pic at (3cm,0) {bass};
+\end{tikzpicture}
+\end{center}
 %During the game, you will launch a flight of hot-air balloons. You will try to ensure that your balloons end up in the best positions in the resulting formation.
 
 %\section*{Components}
