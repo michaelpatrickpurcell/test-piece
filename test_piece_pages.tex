@@ -1,10 +1,10 @@
-\documentclass[a6paper, 11pt, parskip=half, DIV=15]{scrartcl}
+\documentclass[a6paper, 12pt, parskip=half, DIV=14]{scrartcl}
 
 \usepackage[dvipsnames]{xcolor}
 \usepackage{tikz}
 
 \usepackage{testpiece}
-
+\usepackage{caption}
 \usepackage{ragged2e}
 % Minimize unwanted hyphenation
 \tolerance=1
@@ -17,12 +17,12 @@
 %\setmainfont{Qwigley}
 
 \usepackage{eso-pic}
-
+\usepackage{booktabs}
 
 %\definecolor{SunriseBlue}{HTML}{A9C2E5}
 \setkomafont{section}{\setmainfont{Tex Gyre Schola}\LARGE\color{redfabric}\bfseries\scshape}
-\setkomafont{subsection}{\setmainfont{Tex Gyre Schola}\Large\color{redfabric}\bfseries}
-\setkomafont{subsubsection}{\setmainfont{Tex Gyre Schola}\large\color{redfabric}\bfseries}
+\setkomafont{subsection}{\setmainfont{Tex Gyre Schola}\Large\color{redfabric}\bfseries\scshape}
+\setkomafont{subsubsection}{\setmainfont{Tex Gyre Schola}\large\color{redfabric}\bfseries\scshape}
 
 % Adjust spacing before and after section headings
 \RedeclareSectionCommand[
@@ -65,7 +65,7 @@
 }
 
 \usepackage[hidelinks]{hyperref}
-\usepackage[type={CC}, version={4.0}, modifier={by-nc-nd}]{doclicense} % Add text and icons for creative commons license
+\usepackage[type={CC}, version={4.0}, modifier={by-sa}]{doclicense} % Add text and icons for creative commons license
 %\usepackage{array}
 
 \raggedright
@@ -81,7 +81,7 @@
 }
 
 \enlargethispage{3.5\baselineskip}
-\LARGE
+\Large
 \setmainfont[Scale=1.05]{Playball}
 \phantom{test}
 \vfill
@@ -98,192 +98,208 @@
 \ClearShipoutPicture
 \enlargethispage{1.75\baselineskip}
 \section*{Overview}
-Test Piece is a card-drafting game for two players. It can be played in about thirty minutes and is intended for players who are at least twelve years old.
+Test Piece is a two-player card-drafting game about British-style brass bands. It can be played in about thirty minutes and is intended for players who are at least twelve years old.
 
-\begin{center}
-\begin{tikzpicture}
-\pic at (0,0) {soprano};
-\pic at (1cm,0) {alto};
-\pic at (2cm,0) {tenor};
-\pic at (3cm,0) {bass};
+During the game, you will assume the roles of rival music directors who are competing to build the best band from a limited pool of local musicians.
+
+\vspace{0.1cm}
+
+\begin{figure}[h]
+\centering
+%\includegraphics[width=7cm]{Images/shutterstock_cornet.jpg}
+%\includegraphics[height=4.75cm, rotate=-15]{Images/shutterstock_tuba.jpg}
+%\quad
+%\includegraphics[height=4.75cm, rotate=-15]{Images/shutterstock_tuba.jpg}
+    \includegraphics[scale=0.065]{Images/CardImages/cornet_display_front.png}
+    \qquad
+    \includegraphics[scale=0.065]{Images/CardImages/bass_display_front.png}
+	\caption*{Instrument cards that represent two of the instruments played by local musicians.}
+\end{figure}
+
+\newpage
+\enlargethispage{1.75\baselineskip}
+
+\section*{Components}
+\begin{itemize}[leftmargin=4ex, nosep]
+  \item 36 instrument cards
+%  	\vspace{-1ex}
+    \begin{itemize}[nosep, leftmargin=*]
+      \item 18 silver-backed cards
+      \item 18 gold-backed cards
+    \end{itemize}
+    \begin{figure}[h]
+	\centering    
+    \includegraphics[scale=0.04]{Images/CardImages/silver_display_back.png}
+    \qquad
+    \includegraphics[scale=0.04]{Images/CardImages/gold_display_back.png}
+\end{figure}
+  \item 8 pawns
+    \begin{figure}[h]
+	\centering    
+    \includegraphics[scale=0.3]{Images/pawn_red.png}
+    \includegraphics[scale=0.3]{Images/pawn_yellow.png}
+    \includegraphics[scale=0.3]{Images/pawn_green.png}
+    \includegraphics[scale=0.3]{Images/pawn_blue.png}
+	\qquad
+	\includegraphics[scale=0.3]{Images/pawn_red.png}
+    \includegraphics[scale=0.3]{Images/pawn_yellow.png}
+    \includegraphics[scale=0.3]{Images/pawn_green.png}
+    \includegraphics[scale=0.3]{Images/pawn_blue.png}
+
+    \end{figure}
+  \item 2 score boards
+  \begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{Images/score_board_diagram_thin_border.png}
+  \end{figure}
+\end{itemize}
+
+
+\newpage
+\enlargethispage{1.75\baselineskip}
+\section*{Set Up}
+\begin{enumerate}[leftmargin=4ex]
+  \item Separate the two decks (silver-backed and gold-backed) of instrument cards. 
+  \item Shuffle each deck of instrument cards.
+  \item Combine the two instrument decks by placing one on top of the other.
+  \item Place the combined instrument decks face down to one side of the play area.
+  \item Place the score boards near the play area, one in front of each player.
+  \item Place a pawn on the leftmost position of each row on both score boards. 
+  \item Randomly determine who will be Player A and who will be Player B.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=7cm]{Images/shutterstock_trombone.jpg}
+\end{figure}
+
+
+\newpage
+\enlargethispage{1.75\baselineskip}
+\section*{Gameplay}
+During the game, you will \emph{draft} instrument cards. You will add the cards that you draft to a grid of four rows and four columns called your \emph{tableau}.
+
+The game consists of four \emph{rounds}. As you play, you will build eight \emph{performances}.
+For each performance will receive a score for each of the four \emph{voices}: Soprano, Alto, Tenor, and Bass.
+{
+
+\begin{figure}[h]
+\centering
+\Huge
+\tikz{\pic {soprano}} \ \ \tikz{\pic {alto}} \ \ \tikz{\pic {tenor}} \ \ \tikz{\pic {bass}}
+\caption*{The four voice symbols.}
+\end{figure}
+}
+The game ends at the end of the fourth round. Your \emph{overall score} is the maximum of your scores for the four voices.
+
+The player with the \textbf{lower} overall score wins the game. In the case of a tie, you should compare your next highest voice scores in to determine the winner. 
+
+\newpage
+\enlargethispage{1.75\baselineskip}
+\subsection*{Round Structure}
+During each round, you should
+\begin{enumerate}[leftmargin=4ex]
+\item Place the top nine cards from the instrument deck face up in the middle of the play area. This is the \emph{draft row}.
+
+\item Take turns drafting cards from the draft row. See \textcolor{redfabric}{\textbf{\scshape{Drafting}}} for details.
+
+\item After you have drafted four cards, score your column performance for the round. See \textcolor{redfabric}{\textbf{\scshape{Scoring}}} for details.
+
+\item Discard the last card in the draft row.
+\end{enumerate}
+
+At the end of the fourth round, score all four of your row performances.
+
+\subsection*{First Player}
+\begin{itemize}[leftmargin=4ex]
+\item Player A will be the first player in Round 1 and Round 4.
+\item Player B will be the first player in Round 2 and Round 3.
+\end{itemize}
+
+\newpage
+\enlargethispage{1.75\baselineskip}
+\subsection*{Drafting}
+To draft a card, take that card from the draft row and place it in your tableau.
+\begin{itemize}[leftmargin=4ex]
+\item Place all of the cards that you draft in a given round in the same column.
+% of your tableau.
+\item Place each card that you draft in the bottom-most unoccupied position in the current column.
+\end{itemize}
+
+\subsection*{Turn Order}
+Take turns drafting cards from the draft row as follows:
+\begin{enumerate}[leftmargin=4ex]
+\item The first player drafts one card.
+\item The second player drafts two cards.
+\item The first player drafts two cards.
+\item The second player drafts two cards.
+\item The first player drafts one card.
+\end{enumerate}
+
+
+\newpage
+\enlargethispage{1.75\baselineskip}
+\section*{Scoring}
+A performance consists of four cards in one row or column of your tableau.
+
+To score a performance:
+\begin{enumerate}[leftmargin=4ex]
+\item Count how many of each of the four voice symbols appear on its constituent cards. These are the performance's \emph{counts}.
+
+\item Compute the difference between each performance count and the \emph{target value} of 3. These are the \emph{errors}.
+
+\item Increase your score for each voice by the absolute value of its error.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=7cm]{Images/shutterstock_timpani.jpg}
+\end{figure}
+
+\newpage
+\enlargethispage{1.75\baselineskip}
+\subsection*{Example}
+Consider a performance comprised of the four instrument cards depicted below.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.035]{Images/CardImages/cornet_display_front.png}
+\ 
+\includegraphics[scale=0.035]{Images/CardImages/bass_display_front.png}
+\ 
+\includegraphics[scale=0.035]{Images/CardImages/trombone_display_front.png}
+\ 
+\includegraphics[scale=0.035]{Images/CardImages/timpani_display_front.png}
+%\caption*{Instrument cards that represent two of the instruments played by local musicians.}
+\end{figure}
+
+To score this performance, we compute its counts, errors, and scores as follows:
+\begin{table}[h]
+\centering
+\begin{tabular}{lcccc}\toprule
+& \tikz{\footnotesize\pic {littlesoprano}} & \tikz{\footnotesize\pic {littlealto}} & \tikz{\footnotesize\pic {littletenor}} & \tikz{\footnotesize\pic {littlebass}} \\ \midrule
+Count & 2 & 2 & 3 & 5 \\
+Error & -1\phantom{-} & -1\phantom{-} & 0 & 2 \\
+Score & 1 & 1 & 0 & 2 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\vfill
+%\hrulefill
+
+\textbf{Contact}: \href{mailto:ttkttkt@gmail.com}{ttkttkt@gmail.com}\\
+\textbf{License}: This work is licensed under a\\\phantom{\textbf{License}: }``CC BY-SA 4.0'' license.%\raggedright\doclicenseText
+%\blfootnote{\textbf{Contact}: \href{mailto:ttkttkt@gmail.com}{ttkttkt@gmail.com}}
+%\blfootnote{\textbf{License}: \raggedright\doclicenseText}
+ \newpage
+ \AddToShipoutPictureBG{
+\begin{tikzpicture}[remember picture, overlay]
+%	\node () at (current page.center) {\includegraphics[width=\pagewidth, height=\pageheight]{Images/aloft_cover_background.png}};
+	\node () at (current page.center) {\includegraphics[width=\pagewidth, height=\pageheight]{Images/test_piece_back_cover.png}};
 \end{tikzpicture}
-\end{center}
-%During the game, you will launch a flight of hot-air balloons. You will try to ensure that your balloons end up in the best positions in the resulting formation.
-
-%\section*{Components}
-%\begin{itemize}[nosep]
-%  \item 13 balloon cards
-%    \begin{itemize}[nosep]
-%      \item 10 regular balloon cards
-%      \item 3 special shape balloon cards
-%    \end{itemize}
-%  \item 13 scoring tokens
-%  \item 5 truck cards
-%    \begin{itemize}[nosep]
-%      \item 4 launch zone truck cards
-%      \item 1 safety truck card
-%    \end{itemize}
-%  \item 5 color cards
-%  \item 1 panoramic game board
-%\end{itemize}
-%
-%
-%\newpage
-%\enlargethispage{1.75\baselineskip}
-%\section*{Set Up}
-%\begin{enumerate}
-%
-%  \item Deal one color card at random to each player.
-%%  Your color card will determine the color of balloons with which you are \emph{affiliated}.
-%  Do not reveal this card to the other players until the end of the game.
-%
-%%Each regular balloon card is \emph{affiliated} with two of the five possible colors.  The colors that a balloon card is affiliated with are the colors of the envelope of the balloon depicted on that card. Special shape cards are not affiliated with any color.
-% 
-%  \item Place the launch zone truck cards in a single row below the four leftmost columns of the the game board.% These truck cards comprise the \emph{launch zone}. The leftmost truck card is called the \emph{last truck}. The rightmost truck card in the launch zone is called the \emph{lead truck}.
-%
-%  \item Place the safety truck card below leftmost launch zone truck card.
-%
-%%  \item Collect the regular balloon cards and special shape cards that you will use during your game. These cards will comprise the \emph{balloon deck}.
-%
-%  \item Display the balloon cards in a single row below the launch zone. 
-%
-%  \item Place the scoring tokens nearby for use when scoring at the end of the game.
-%%![Set up for a four-player game.](set_up_diagram.jpg)
-%\end{enumerate}
-%\begin{center}
-%\includegraphics[scale=0.105]{set_up_diagram.jpg}
-%\end{center}
-%
-%\newpage
-%\enlargethispage{1.75\baselineskip}
-%\section*{Gameplay}
-%On your turn, you will perform either one or two actions:
-%\begin{enumerate}[nosep]
-%  \item If any balloons are flying, move a truck.
-%  \item Advance a balloon.
-%\end{enumerate}
-%
-%The game ends when the lead truck moves past the rightmost column of the game board. If this happens on your turn, you should advance a balloon as usual and then proceed to {\setmainfont{Fredoka-Bold} \textcolor{SunriseBlue}{Scoring}}.
-%
-%\subsection*{Move a Truck}
-%If any balloons are flying, then before you advance a balloon you will move a truck. Trucks always move from left to right.
-%
-%When you move a truck, you will either
-%\begin{itemize}[nosep]
-%  \item Move a launch zone truck.
-%  \item Move the safety truck.
-%\end{itemize}
-%
-%The safety truck must always be between (or even with) the lead truck and the last truck.
-%%\begin{itemize}
-%%  \item If moving the safety truck would cause it to pass the lead truck, you must move a launch zone truck.
-%%  \item If moving a launch zone truck would cause the last truck to pass the safety truck, you must move the safety~truck.
-%%\end{itemize}
-%
-%\subsubsection*{Moving a Launch Zone Truck}
-%If the launch zone trucks are in adjacent columns, then you should move the rightmost truck one column to the right.
-%
-%\begin{center}
-%\includegraphics[scale=0.1]{wind_diagram_1.jpg}
-%\end{center}
-%
-%%![Moving a truck when the trucks are in a single group and the safety vehicle is centered on the launch zone.](wind_diagram_1.jpg)
-%
-%Otherwise, the launch zone trucks will be in two groups which are separated by one empty column. You should move the rightmost truck from the first group one column to the right.
-%%It should then be the leftmost truck in the second group.
-%
-%\begin{center}
-%\includegraphics[scale=0.1]{wind_diagram_2.jpg}
-%\end{center}
-%
-%If moving a launch zone truck would cause the last truck to pass the safety truck, then you must move the safety truck.
-%
-%Any balloon on a launch zone truck should accompany that truck when it is moved.
-%
-%\newpage
-%\enlargethispage{1.75\baselineskip}
-%\subsubsection*{Moving the Safety Truck}
-%To move the safety truck, you should move it one column to the right.
-%
-%If moving the safety truck would cause it to pass the lead truck, then you must move a launch zone truck.
-%
-%\begin{center}
-%\includegraphics[scale=0.1]{wind_diagram_3.jpg}
-%\end{center}
-%
-%\subsection*{Advance a Balloon}
-%Throughout the game, each balloon will advance through a series of states: packed, unpacked, inflated, and flying at altitudes ranging from one to four. All balloons begin in the packed state.
-%
-%On your turn, you should advance one balloon of your choice. If you cannot advance any of the balloons, then you should skip this step.
-%
-%\newpage
-%To advance a balloon, you should move it from its current state to the next.
-%\begin{description}[leftmargin=0pt]
-%  \item[Unpack:] To advance a balloon from the packed state to the unpacked state, place it horizontally on a launch zone truck.
-%  \begin{itemize}
-%    \item You may not place a balloon on a truck that already has a balloon on it.
-%  \end{itemize}
-%  \item[Inflate:] To advance a balloon from the unpacked state to the inflated state, turn it so that it is placed vertically on its truck.
-%  \item[Launch:] To advance a balloon from the inflated state to the flying state, move it to the bottom row of the game board above its truck. It will then be flying at an altitude of one.
-%  \item[Ascend:] To advance a balloon that is flying, move it up one row. It will then be flying at an altitude one more than before.
-%  \begin{itemize}
-%    \item Balloons that are flying may never be orthogonally adjacent to one another.% balloon which is flying.
-%    \item The maximum altitude at which balloons can fly is four.
-%  \end{itemize}
-%\end{description}
-%
-%\newpage
-%\enlargethispage{1.75\baselineskip}
-%\subsection*{Scoring}
-%%Each balloon scores a number of points that is determined by its position within the formation. In general, balloons that are flying at higher altitudes score more points than those that are flying at lower alititudes.  If balloons are flying at the same altitude, then the balloons that are closer to the front (right-hand side) of the formation score more points than the balloons that are closer to the back (left-hand side) of the formation. 
-%
-%Use the scoring tokens to indicate the number of points scored by each balloon.
-%\begin{enumerate}
-%  \item Place the scoring token numbered ``1'' on the leftmost balloon in the bottom row of the formation.
-%  \item Scanning from left to right and bottom to top, place scoring tokens on the other balloons in the formation, placing the token with lowest remaining number on each balloon as you encounter it.
-%%  \item Proceed to the next highest row of the formation. Continue in this fashion, scanning from left to right and bottom to top, until each balloon that is flying has been assigned a scoring token.
-%\end{enumerate}
-%
-%%Notice that the leftmost balloon in the bottom row of the formation always scores one point while the rightmost balloon in the top row of the formation scores one point for every balloon that is flying at the end of the game. See the figure below for a more complete example.
-%
-%Your score is the sum of the scores for all of the balloons with which you are affiliated (i.e. that match your color card). The player with the highest score wins the game.
-%
-%\begin{center}
-%\includegraphics[scale=0.115]{scoring_diagram.jpg}
-%\end{center}
-%
-%\newpage
-%\enlargethispage{1.75\baselineskip}
-%\section*{Solo Mode}
-%Aloft can also be played as a one-player game.
-%\blfootnote{\textbf{Contact}: \href{mailto:aloft.board.game@gmail.com}{aloft.board.game@gmail.com}}
-%\blfootnote{\textbf{License}: \raggedright\doclicenseLongText}
-%This is similar to the multi-player version, differing in the following ways:
-%\begin{itemize}
-%  \item You will not use the color cards or the scoring tokens. You will only use two of the special shape balloon cards.
-%  \item You will shuffle the balloon cards before dealing them out in a single row below the game board. If you choose to unpack a balloon on a given turn, you must unpack the first (leftmost) remaining balloon.
-%  \item Balloons that are flying and that share a color may never be diagonally adjacent to one another.
-%  \item Your score is equal to the number of adjacent columns required to contain the formation plus a three point penalty for every balloon which you failed to launch.
-%\end{itemize}
-% \newpage
-% \AddToShipoutPictureBG{
-%\begin{tikzpicture}[remember picture, overlay]
-%%	\node () at (current page.center) {\includegraphics[width=\pagewidth, height=\pageheight]{Images/aloft_cover_background.png}};
-%	\node () at (current page.center) {\includegraphics[width=\pagewidth, height=\pageheight]{Images/aloft_back_cover_background.png}};
-%\end{tikzpicture}
-%}
-%\phantom{Aloft}
-%\vfill
-%\begin{center}
-%{\setmainfont{Fredoka-Bold}\huge\textcolor{white}{The Balloonist's Prayer}\\[2ex]}
-%\textcolor{white}{May the winds welcome you with softness.\\[2ex]
-%May the sun bless you with its warm hands.\\[2ex]
-%May you fly so high and so well that God\\[2ex]
-%joins you in laughter and sets you gently\\[2ex]
-%back into the loving arms of Mother Earth.}
-%\end{center}
-%%\vfill
-%\phantom{Aloft}
-%
-%\phantom{Aloft}
+}
+\phantom{Test Piece}
 \end{document}
