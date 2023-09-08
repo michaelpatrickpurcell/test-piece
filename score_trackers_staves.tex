@@ -24,8 +24,7 @@
 \usepackage{graphics}
 \begin{document}
 \begin{tikzpicture}
-%\path[draw] (-148.5mm, 0mm) rectangle (148.5mm, -210mm);
-\path[draw, line width=1.5mm, rounded corners=3mm] (-148.5mm, 0mm) rectangle (148.5mm, -105mm);
+%\path[draw, line width=1.5mm, rounded corners=3mm] (-148.5mm, 0mm) rectangle (148.5mm, -105mm);
 \node[anchor=north] at (0, -1.0cm) {{
 \setmainfont{Tex Gyre Schola}
 \Huge
@@ -38,12 +37,20 @@ Score
 {\Huge \pic () at (-13.5cm,-6.5cm) {tenor};}
 {\Huge \pic () at (-13.5cm,-8.25cm) {bass};}
 
-%\node[anchor=north] at (0, -115mm) {{
-%\setmainfont{Tex Gyre Schola}
-%\Huge
-%Test Piece -- Score
-%}};
-%\node[anchor=south] at (0, -199mm) {\scoretrack};
+\node[anchor=north] at (0, -11.5cm) {{
+\setmainfont{Tex Gyre Schola}
+\Huge
+Score
+}};
+\node[anchor=south] at (0.875cm, -199mm) {\scoretrack};
+
+{\Huge \pic () at (-13.5cm,-13.55cm) {soprano};}
+{\Huge \pic () at (-13.5cm,-15.3cm) {alto};}
+{\Huge \pic () at (-13.5cm,-17cm) {tenor};}
+{\Huge \pic () at (-13.5cm,-18.75cm) {bass};}
+
+\path[draw] (-148.5mm, 0mm) rectangle (148.5mm, -210mm);
+\path[draw] (-148.5mm, 0mm) rectangle (148.5mm, -105mm);
 
 \end{tikzpicture}
 \end{document}
